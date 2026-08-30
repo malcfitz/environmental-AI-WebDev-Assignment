@@ -1,6 +1,3 @@
-Here's the README content in markdown — copy this into a README.md file at the root of your repo:
-
-markdown
 # Environmental AI
 
 A full-stack ASP.NET Core MVC website exploring how artificial intelligence is being used to tackle environmental sustainability challenges — built as part of the Web Design and Programming unit at the University of Canberra.
