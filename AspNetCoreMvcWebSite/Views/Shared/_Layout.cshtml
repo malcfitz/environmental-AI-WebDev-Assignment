@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - How AI is saving the environment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/AspNetCoreMvcWebSite.styles.css" asp-append-version="true" />
+    <link rel="icon" type="image/png" href="~/images/websiteLogo.png" />
+
+</head>
+<body class="@ViewData["BodyClass"] d-flex flex-column min-vh-100">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand text-light" asp-area="" asp-controller="Home" asp-action="Index">Environmental AI</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item"><a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li class="nav-item"><a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Map">Map</a></li>
+                        <li class="nav-item"><a class="nav-link text-light" asp-area="" asp-controller="AIImage" asp-action="Index">AI Images</a></li>
+                        <li class="nav-item"><a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main" class="flex-grow-1 pb-3">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </main>
+
+    <footer class="border-top footer text-light text-center mt-auto">
+        <div class="container">
+            &copy; 2025 - u3275671 Website - 
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="text-light">Home</a> | 
+            <a asp-area="" asp-controller="Home" asp-action="Map" class="text-light">Map</a> | 
+            <a asp-area="" asp-controller="AIImage" asp-action="Index" class="text-light">AI Images</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

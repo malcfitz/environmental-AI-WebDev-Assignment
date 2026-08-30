@@ -1,0 +1,52 @@
+@model AspNetCoreMvcWebSite.Models.AIImage
+
+@{
+    ViewData["Title"] = "Edit Image Post";
+    ViewData["BodyClass"] = "Main-bg";
+}
+
+<h1>Edit Image Post</h1>
+
+<form asp-action="Edit" asp-controller="AIImage" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="row align-items-start">
+        <!-- Left column: current image -->
+        <div class="col-md-4 text-center">
+            @if (!string.IsNullOrEmpty(Model.ImagePath))
+            {
+                <img src="@Model.ImagePath" class="img-fluid rounded shadow mb-3" alt="Current Image" />
+            }
+            else
+            {
+                <div class="bg-secondary text-white d-flex align-items-center justify-content-center rounded" style="width:100%; height:200px;">
+                    No image uploaded
+                </div>
+            }
+        </div>
+
+        <!-- Right column: form -->
+        <div class="col-md-8">
+            <div class="form-group mb-3">
+                <label asp-for="Prompt" class="form-label"></label>
+                <input asp-for="Prompt" class="form-control" />
+                <span asp-validation-for="Prompt" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="ImageGenerator" class="form-label"></label>
+                <input asp-for="ImageGenerator" class="form-control" />
+                <span asp-validation-for="ImageGenerator" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label class="form-label">Upload New Image (optional)</label>
+                <input type="file" name="File" class="form-control" accept="image/*" />
+                <small class="text-muted">Leave blank to keep the current image.</small>
+            </div>
+
+            <button type="submit" class="btn btn-success">Save Changes</button>
+            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        </div>
+    </div>
+</form>

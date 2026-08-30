@@ -1,0 +1,74 @@
+﻿@{
+    ViewData["Title"] = "AI Impact Map";
+    ViewData["BodyClass"] = "Main-bg";
+}
+
+<div id="title-section" class="text-center mb-5 text-light">
+    <h1 class="display-4">Global AI Sustainability Projects</h1>
+    <p class="lead">Explore how artificial intelligence is helping the planet - from renewable energy forecasting to recycling automation. <br /> And the Challenges AI is helping to Solve</p>
+</div>
+
+<!-- Map + Statistics Row -->
+<div class="container mb-5">
+    <div class="row">
+
+        <!-- Map Column -->
+        <div class="col-lg-8 mb-4">
+            <!-- Filter centered above the map -->
+            <div class="d-flex justify-content-center mb-4">
+                <label for="projectFilter" class="form-label fw-bold me-2 align-self-center">Filter by Category:</label>
+                <select id="projectFilter" class="form-select w-auto d-inline-block">
+                    <option value="all" selected>All</option>
+                    <option value="Energy">Energy</option>
+                    <option value="Agriculture">Agriculture</option>
+                    <option value="SupplyChain">Supply Chain</option>
+                    <option value="CarbonOffset">Carbon Off set</option>
+                </select>
+            </div>
+
+            <!-- Map -->
+            <div id="map" style="width: 100%; height: 600px; min-width: 400px;"></div>
+        </div>
+
+        <!-- Statistics Column -->
+        <div class="col-lg-4 d-flex flex-column justify-content-center text-center text-lg-start">
+            <h2 class="mb-4 text-center">What are these companies fighting (<a href="https://www.who.int/news-room/fact-sheets/detail/climate-change-and-health">WHO</a>)</h2>
+            <div class="stat-box mb-3">
+                <h3 class="counter" data-target="3600000000" data-prefix="" data-suffix="">0</h3>
+                <p>People Living in highly susceptible areas to climate change</p>
+            </div>
+            <div class="stat-box mb-3">
+                <h3 class="counter" data-target="250000" data-prefix="" data-suffix="">0</h3>
+                <p>Deaths caused by Climate Change between 2030-2050</p>
+            </div>
+            <div class="stat-box mb-3">
+                <h3 class="counter" data-target="4000000000" data-prefix="$" data-suffix="">0</h3>
+                <p>Direct Costs to health by 2030</p>
+            </div>
+            <div class="stat-box">
+                <h3 class="counter" data-target="37" data-prefix="" data-suffix="%">0</h3>
+                <p>Of heat deaths caused by climate change</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Project Modal -->
+<div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="projectModalLabel">Project Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="projectModalBody">
+        <!-- Filled dynamically by JS -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Leaflet CSS & JS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>

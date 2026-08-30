@@ -1,0 +1,33 @@
+@model AspNetCoreMvcWebSite.Models.AIImage
+
+@{
+    ViewData["Title"] = "Create";
+    ViewData["BodyClass"] = "Main-bg";
+}
+
+<h1>Create New Image</h1>
+
+<form asp-action="Create" enctype="multipart/form-data" method="post">
+    @Html.AntiForgeryToken()
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Prompt" class="form-label"></label>
+        <input asp-for="Prompt" class="form-control" />
+        <span asp-validation-for="Prompt" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="ImageGenerator" class="form-label"></label>
+        <input asp-for="ImageGenerator" class="form-control" />
+        <span asp-validation-for="ImageGenerator" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="File" class="form-label">Upload Image</label>
+        <input type="file" name="File" class="form-control" accept="image/*" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+</form>

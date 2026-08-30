@@ -1,0 +1,119 @@
+@model IEnumerable<AspNetCoreMvcWebSite.Models.AIImage>
+
+@{
+    ViewData["Title"] = "AI Images";
+    ViewData["BodyClass"] = "Main-bg";
+}
+
+<form style="display:none">
+    @Html.AntiForgeryToken()
+</form>
+
+<!-- ===== Hero Section ===== -->
+<section class="text-center py-5 mb-5" id="heroBg">
+    <div class="container fade-in">
+        <h1 class="display-5 fw-bold mb-3">AI Image Forum</h1>
+        <p class="lead mb-4" style="color: #cfe9ff;">
+            Discover and share AI-generated images that inspire innovation and creativity.
+        </p>
+
+        @if (User.Identity != null && User.Identity.IsAuthenticated)
+        {
+            <a asp-action="Create" class="btn btn-success px-4 py-2 fw-semibold rounded-pill shadow-sm">
+                + Create New Post
+            </a>
+        }
+        else
+        {
+            <a asp-area="Identity" asp-page="/Account/Login" class="btn btn-primary px-4 py-2 fw-semibold rounded-pill shadow-sm">
+                Log in to Create a Post
+            </a>
+        }
+    </div>
+</section>
+
+<!-- ===== Posts Section ===== -->
+
+<div class="container" id="postsContainer">
+    @foreach (var (item, index) in Model.Select((value, i) => (value, i)))
+    {
+        var bgClass = index % 2 == 0 ? "alt-bg-light" : "alt-bg-dark";
+
+        <div class="row align-items-stretch image-item mb-5" id="image-@item.Id">
+            @if (index % 2 == 0)
+            {
+                <!-- Image Left -->
+                <div class="col-md-5 text-center d-flex">
+                    @if (!string.IsNullOrEmpty(item.ImagePath))
+                    {
+                        <img src="@item.ImagePath"
+                             class="img-fluid rounded shadow-sm flex-fill"
+                             alt="Uploaded Image" />
+                    }
+                </div>
+
+                <div class="col-md-7 d-flex">
+                    <div class="card border-0 shadow-sm rounded-4 text-center text-box flex-fill @bgClass">
+                        <div class="card-body p-4 d-flex flex-column justify-content-center">
+                            <h3 class="card-title">@item.ImageGenerator</h3>
+                            <p class="card-text">@item.Prompt</p>
+                            <p class="text-light small mb-3">
+                                Created by <b>@item.ImageGenerator</b> on @item.UploadDate.ToShortDateString()
+                            </p>
+                            <div class="btn-group justify-content-center">
+                                @if (User.Identity != null && User.IsInRole("admin"))
+                                {
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Edit</a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</a>
+                                }
+                                <form asp-action="IncreaseLike" method="post" class="d-inline">
+                                    <input type="hidden" name="id" value="@item.Id" />
+                                    <button class="btn btn-success btn-sm like-btn" data-id="@item.Id">
+                                        Like (<span class="like-count">@item.Like</span>)
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <!-- Image Right -->
+                <div class="col-md-7 d-flex order-md-1">
+                    <div class="card border-0 shadow-sm rounded-4 text-center text-box flex-fill @bgClass">
+                        <div class="card-body p-4 d-flex flex-column justify-content-center">
+                            <h3 class="card-title">@item.ImageGenerator</h3>
+                            <p class="card-text">@item.Prompt</p>
+                            <p class="text-light small mb-3">
+                                Created by <b>@item.ImageGenerator</b> on @item.UploadDate.ToShortDateString()
+                            </p>
+                            <div class="btn-group justify-content-center">
+                                @if (User.Identity != null && User.IsInRole("admin"))
+                                {
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Edit</a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</a>
+                                }
+                                <form asp-action="IncreaseLike" method="post" class="d-inline">
+                                    <input type="hidden" name="id" value="@item.Id" />
+                                    <button class="btn btn-success btn-sm like-btn" data-id="@item.Id">
+                                        Like (<span class="like-count">@item.Like</span>)
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-5 text-center d-flex order-md-2">
+                    @if (!string.IsNullOrEmpty(item.ImagePath))
+                    {
+                        <img src="@item.ImagePath"
+                             class="img-fluid rounded shadow-sm flex-fill"
+                             alt="Uploaded Image" />
+                    }
+                </div>
+            }
+        </div>
+    }
+</div>

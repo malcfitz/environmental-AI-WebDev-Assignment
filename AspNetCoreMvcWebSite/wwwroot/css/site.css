@@ -1,0 +1,629 @@
+/* Background */
+body.Main-bg {
+  background-color: #52B69A;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* General Styling */
+body {
+  font-family: "Poppins", "Lato", sans-serif;
+}
+
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
+
+/* Paralex Scrolling */
+
+/* Enable snap scrolling for whole page */
+html, body {
+    scroll-snap-type: y mandatory;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* 
+================
+  Home/Index
+================
+*/
+
+/* ===== Clouds Layer ===== */
+.clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 60vh;
+    background-image: url('../images/clouds3.png');
+    background-repeat: repeat-x;
+    background-size: contain;
+    background-position: top center;
+    opacity: 0.7;
+    transition: background-position 0.1s linear;
+    z-index: 1;
+}
+
+/* ===== Trees Layer ===== */
+.trees {
+    position: absolute;
+    bottom: 0; 
+    left: 0;
+    width: 200%;
+    height: 65vh;
+    background-image: url('../images/BgTree.png');
+    background-repeat: repeat-x;
+    background-size: contain;
+    background-position: bottom center;
+    opacity: 1;
+    z-index: 3;
+    transition: transform 0.2s linear;
+}
+
+/* ===== Green Ground Layer ===== */
+.ground {
+    position: absolute;
+    bottom: 0; 
+    left: 0;
+    width: 200%;
+    height: 40vh;
+    background-color: #4CAF50;
+    background-repeat: repeat-x;
+    background-size: cover;
+    background-position: bottom center;
+    z-index: 2;
+    transition: transform 0.2s linear;
+}
+
+/* ===== Background Layers Container ===== */
+.background-layers {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* ===== Home Background (Sky) ===== */
+body.home-bg {
+    background: linear-gradient(to bottom, #87CEEB 0%, #6BB3E8 70%, #4CAF50 100%);
+    background-attachment: fixed;
+    background-size: cover;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 200vh;
+}
+
+
+/* ===== Content Layer ===== */
+.content {
+    position: relative;
+    z-index: 5;
+    color: white;
+}
+
+/* Fade-in Parallax Sections */
+.parallax-section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.parallax-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Fade + slide hidden state */
+.parallax-section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Active state when in view */
+.parallax-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Parallax background */
+.parallax-section {
+    scroll-snap-align: start;
+    width: 100%;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    padding: 4rem 0;
+}
+
+#title-section {
+    background-color: #168AAD;
+    border: 2px solid white;
+    box-shadow: 10px 10px 0px 0px #184E77;
+    padding: 2rem; 
+    text-align: center; 
+    margin-bottom: 2rem; 
+    color: black;
+}
+
+.info-box {
+  background-color: #1E6091;
+  color: white;
+  border: 2px solid #184E77;
+  text-align: left;
+  height: 100%;
+  border-radius: 25px;
+}
+
+.image-box {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.image-box .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #184e77b2;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 25px;
+}
+
+.image-box:hover .overlay {
+  opacity: 1;
+}
+
+.overlay-text {
+  font-size: 1.1rem;
+  padding: 15px;
+  text-align: center;
+}
+
+
+/* Image Card Styling */
+.image-card {
+    position: relative;
+    width: 100%;
+    padding-top: 100%; 
+    background-color: #1E6091; 
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.image-card:hover {
+    transform: scale(1.05);
+}
+
+.image-card-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.image-card:hover .image-card-img {
+    opacity: 1;
+}
+
+.image-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    transition: opacity 0.3s;
+}
+
+.image-card:hover .image-card-overlay {
+    opacity: 0;
+}
+
+.image-card-text {
+    padding: 10px;
+}
+
+/* 
+====================
+    Contact Page
+====================
+*/
+
+body.Contact-bg {
+  width: 100%;
+  background: linear-gradient(135deg, #52B69A 0%, #76C893 50%, #99D98C 100%);
+}
+
+#contact-title {
+  font-family: 'Anton', sans-serif;
+  background-image: linear-gradient(to right, #168AAD, #1A759F, #184E77);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgba(0,0,0,0.3);
+  padding: 6vw 2vw 2vw 2vw;
+  text-align: center;
+  font-size: 6vw;
+  letter-spacing: 2px;
+}
+
+/* Box styles */
+.contact-box1, .contact-box2, .contact-box3 {
+  background: linear-gradient(135deg, #1A759F, #184E77);
+  border: none;
+  border-radius: 18px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Subtle hover animation */
+.contact-box1:hover, .contact-box2:hover, .contact-box3:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(135deg, #1A759F, #168AAD);
+}
+
+/* Section wrapper to center and space content */
+#section1-contact {
+  background-color: #52B69A;
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Headings */
+.contact-headers {
+  color: #FFFFFF;
+  font-size: 2rem;
+  text-shadow: 1px 1px rgba(0,0,0,0.3);
+  margin-bottom: 1rem;
+}
+
+/* Divider line */
+.page-break {
+  border: none;
+  height: 3px;
+  background: linear-gradient(to right, #D9ED92, #99D98C, #76C893);
+  width: 60%;
+  margin: 0 auto 1.5rem auto;
+  border-radius: 2px;
+}
+
+/* Text styling */
+.contact-text {
+  color: #F1FAEE;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.contact-text a {
+  color: #CAF0F8;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.contact-text a:hover {
+  color: #ADE8F4;
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #contact-title {
+    font-size: 10vw;
+  }
+
+  .contact-headers {
+    font-size: 1.6rem;
+  }
+
+  .contact-box1, .contact-box2, .contact-box3 {
+    margin-bottom: 1.5rem;
+  }
+}
+
+
+/* 
+======================== 
+  Impact Map Styles 
+======================== 
+*/
+
+#map {
+    height: 600px;          
+    max-width: 1200px;      
+    width: 90%;             
+    margin: 2rem auto;     
+    border: 3px solid #184E77;
+    border-radius: 15px;
+    box-shadow: 10px 10px 0px 0px #184E77;
+}
+
+
+/* Counter.js Stats */
+.section-map-stats {
+    background-color: #f8f9fa;
+    color: #184E77;
+}
+
+.stat-box h3 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.stat-box p {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* Popup Styling */
+.leaflet-popup-content-wrapper {
+    background: #1E6091;
+    color: white;
+    border-radius: 12px;
+    box-shadow: 0 0 10px #184E77;
+    font-family: Arial, sans-serif;
+}
+
+.leaflet-popup-tip {
+    background: #1E6091;
+}
+
+.popup-content {
+    text-align: center;
+}
+
+.popup-content strong {
+    color: #76C893;
+    font-size: 1.1rem;
+}
+
+.popup-content p {
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+}
+
+.popup-content a {
+    color: #52B69A;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.popup-content a:hover {
+    color: #99E2B4;
+}
+
+/* Like button after being liked */
+button.btn-secondary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* 
+=======================
+    Index/AIImage 
+=======================
+*/
+
+#heroBg {
+    background: linear-gradient(135deg, #1E6091, #184E77); border-radius: 16px; color: #fff;
+}
+
+.image-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch; 
+    margin-bottom: 2rem; 
+}
+
+/* Equal height columns */
+.image-item > [class^="col-"] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* ===== Text Card Styling ===== */
+.text-box {
+    background: #184E77;
+    color: #ffffff;
+    border: none;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle gradient overlay for depth */
+.text-box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(0,0,0,0.1));
+    pointer-events: none;
+    border-radius: inherit;
+}
+
+.text-box:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Alternating colours */
+.alt-bg-light {
+    background-color: #184E77; 
+    color: #ffffff;
+}
+
+.alt-bg-dark {
+    background-color: #1E6091;
+    color: #ffffff;
+}
+
+/* ===== Text Enhancements ===== */
+.text-box h2, .text-box h3 {
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.text-box p {
+    color: #d6eaff;
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.text-box small {
+    color: #b8e0ff;
+    font-size: 0.9rem;
+}
+
+/* ===== Like Button Styling ===== */
+.like-button {
+    background: #38b000;
+    border: none;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    align-self: center;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.like-button:hover {
+    background: #57cc02;
+    transform: scale(1.05);
+}
+
+/* ===== Image Styling ===== */
+.image-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.image-item img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Padding between text and image */
+.image-item > div {
+    padding: 1rem 1.5rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 991.98px) {
+    .text-box {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .image-item {
+        flex-direction: column;
+    }
+
+    .image-item img {
+        height: auto;
+        margin-bottom: 1rem;
+    }
+}
+
+/* ===== Pop animation ===== */
+.pop-animate {
+    animation: pop 0.4s ease;
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0.97);
+        opacity: 0.9;
+    }
+    50% {
+        transform: scale(1.03);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}

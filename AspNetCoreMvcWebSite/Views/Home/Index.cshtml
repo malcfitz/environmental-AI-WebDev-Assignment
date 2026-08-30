@@ -1,0 +1,159 @@
+﻿@model IEnumerable<AspNetCoreMvcWebSite.Models.AIImage>
+
+@{
+    ViewData["Title"] = "Home Page";
+    ViewData["BodyClass"] = "home-bg";
+}
+
+<!-- Background layers -->
+<div class="background-layers">
+    <div class="clouds"></div>
+    <div class="trees"></div>
+    <div class="ground"></div>
+</div>
+
+<!-- Main Page Content -->
+<div class="content">
+    <div class="text-center text-light" id="title-section">
+        <h1 class="display-4">AI in Sustainability</h1>
+        <p>
+            The big benefit of AI is that it can detect patterns in data, such as anomalies and similarities, 
+            and use historic knowledge to accurately predict future outcomes. That could make AI invaluable 
+            for monitoring the environment, and helping governments, businesses and individuals make more 
+            planet-friendly choices. It can also enhance efficiencies. 
+            <a href="https://www.unep.org/news-and-stories/story/ai-has-environmental-problem-heres-what-world-can-do-about">UNEP</a>
+        </p>
+    </div>
+
+    <!-- Section 1 -->
+    <div class="parallax-section section-1">
+        <div class="container">
+            <div class="row mb-4 text-center">
+                <div class="col-md-6">
+                    <div class="info-box p-4 h-100">
+                        <h3 class="fw-bold text-warning">Energy & Climate Efficiency</h3>
+                        <p>AI is helping reduce greenhouse gas emissions by making energy systems more efficient and supporting the shift to renewables. From optimizing data center cooling to predicting renewable energy output, AI enables more sustainable use of power and faster progress toward carbon neutrality.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="image-box">
+                        <img src="../images/google.png" class="img-fluid" alt="Google">
+                        <div class="overlay">
+                            <div class="overlay-text">
+                                <strong>Google DeepMind:</strong><br />
+                                Applied AI in data centers to reduce cooling energy use by 40%, and uses AI to forecast wind energy production for better integration into the power grid.<br />
+                                <a href="https://deepmind.google/discover/blog/using-ai-to-fight-climate-change/">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="image-box">
+                        <img src="../images/climateAi.png" class="img-fluid" alt="ClimateAI">
+                        <div class="overlay">
+                            <div class="overlay-text">
+                                <strong>ClimateAI:</strong><br />
+                                Provides climate risk modeling for agriculture and supply chains, helping businesses anticipate extreme weather and reduce environmental and financial risks.<br />
+                                <a href="https://climate.ai/">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="parallax-section section-2">
+        <div class="container">
+            <div class="row mb-4 text-center">
+                <div class="col-md-3">
+                    <div class="image-box">
+                        <img src="../images/ibmLogo.png" class="img-fluid" alt="IBM Logo">
+                        <div class="overlay">
+                            <div class="overlay-text">
+                                <strong>IBM:</strong><br />
+                                Uses AI and blockchain to build transparent, sustainable supply chains, helping companies track carbon footprints and ensure ethical sourcing.<br />
+                                <a href="https://www.ibm.com/resources/business-operations/supply-chain-sustainability">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="image-box">
+                        <img src="../images/ampRoboticsLogo.png" class="img-fluid" alt="Amp Robotics Logo">
+                        <div class="overlay">
+                            <div class="overlay-text">
+                                <strong>Amp Robotics:</strong><br />
+                                Develops AI-powered robots that identify and sort recyclables with high accuracy, increasing recycling rates and reducing landfill waste.<br />
+                                <a href="https://ampsortation.com/">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="info-box p-4 h-100">
+                        <h3 class="fw-bold text-info">Sustainable Supply Chains & Circular Economy</h3>
+                        <p>AI is making global supply chains smarter and more transparent, reducing waste and enabling better recycling practices. By tracking materials, optimizing logistics, and improving waste sorting, AI contributes to a circular economy where resources are reused rather than discarded.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="parallax-section section-3">
+        <div class="container">
+            <div class="row mb-4 text-center">
+                <div class="col-md-6">
+                    <div class="info-box p-4 h-100">
+                        <h3 class="fw-bold text-warning">Agriculture & Natural Resource Management</h3>
+                        <p>AI is transforming farming and resource management by improving crop yields, reducing water and fertilizer use, and monitoring ecosystems. This not only increases food security but also helps conserve natural resources and protect biodiversity.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="image-box">
+                        <img src="../images/microsoft.png" class="img-fluid" alt="Microsoft Logo">
+                        <div class="overlay">
+                            <div class="overlay-text">
+                                <strong>Microsoft AI for Earth:</strong><br />
+                                Funds and provides AI tools for projects in sustainable agriculture, water conservation, and biodiversity monitoring.<br />
+                                <a href="https://news.microsoft.com/apac/features/ai-for-earth-helping-save-the-planet-with-data-science/">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="image-box">
+                        <img src="../images/cropX.png" class="img-fluid" alt="CropX Logo">
+                        <div class="overlay">
+                            <div class="overlay-text">
+                                <strong>CropX:</strong><br />
+                                Uses soil sensors and AI to deliver precision irrigation and fertilization insights, minimizing waste while improving farm productivity.<br />
+                                <a href="https://cropx.com/">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery -->
+    <h1 class="text-center mb-4">AI Image Gallery</h1>
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
+                    <div class="image-card">
+                        <img src="@item.ImagePath" alt="@item.ImageGenerator" class="image-card-img" />
+                        <div class="image-card-overlay">
+                            <span class="image-card-text">@item.ImageGenerator</span>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
